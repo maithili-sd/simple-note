@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/a5e30fff82.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>Simple Note</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="heading">Simple Note</h1>
+        </header>
+
+        <div class="add-note-form">
+            <!-- <button id="show-form" onclick="showCreateNoteForm(true)">
+                <i class="fas fa-plus-circle fa-2x"></i>
+            </button> -->
+            <i
+                class="far fa-plus-square fa-2x"
+                id="show-form"
+                onclick="showCreateNoteForm(true)"
+            ></i>
+
+            <form id="new-note" onSubmit="return false">
+                <label for="note-description" hidden>New note</label>
+                <textarea
+                    type="text"
+                    maxlength="255"
+                    id="note-description"
+                    name="note-description"
+                    rows="3"
+                    cols="30"
+                    placeholder="Enter your new note here"
+                ></textarea>
+                <div class="flex-row">
+                    <button id="add-note" type="submit" onClick="addNote()">
+                        Add note
+                    </button>
+                    <button
+                        id="cancel-create-note"
+                        onclick="showCreateNoteForm(false)"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="edit-note-form">
+            <form id="edit-note" onSubmit="return false">
+                <label for="edit-note-description" hidden>Edit note</label>
+                <textarea
+                    type="text"
+                    maxlength="255"
+                    id="edit-note-description"
+                    name="edit-note-description"
+                    rows="3"
+                    cols="30"
+                ></textarea>
+                <input type="hidden" id="note-id" name="note-id" />
+                <div class="flex-row">
+                    <button id="done" type="submit" onclick="editNote()">
+                        Save
+                    </button>
+                    <button
+                        id="cancel-edit-note"
+                        onclick="showEditNoteForm(false)"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="no-notes">
+            <p>No notes yet, click add icon to add a new note.</p>
+        </div>
+
+        <div id="render-notes"></div>
+
+        <div id="snackbar-container"></div>
+
+        <script src="app.js"></script>
+    </body>
+</html>

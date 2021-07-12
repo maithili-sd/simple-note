@@ -1,0 +1,220 @@
+body {
+    margin: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    color: #2c3a4e;
+}
+
+button {
+    border: 2px solid transparent;
+    padding: 6px 16px;
+    border-radius: 5px;
+    transition: all 200ms ease-in-out;
+}
+
+button:hover {
+    border: 2px solid #2c3a4e;
+    cursor: pointer;
+}
+
+textarea {
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    letter-spacing: 0.15em;
+}
+
+#no-notes {
+    text-align: center;
+    color: rgb(168, 168, 168);
+}
+
+.add-note-form,
+.edit-note-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#show-form {
+    margin: 5px auto;
+    border-radius: 100%;
+    transition: all 200ms ease-in-out;
+}
+
+#show-form:hover {
+    cursor: pointer;
+    color: #44af69;
+    transform: scale(1.3);
+}
+
+#cancel-create-note,
+#add-note {
+    margin: 10px 0;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#new-note,
+#edit-note {
+    display: flex;
+    flex-direction: column;
+}
+
+#render-notes {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+    border: 3px dotted transparent;
+    border-radius: 10px;
+    transition: all 200ms ease-in-out;
+}
+
+.note-item:hover {
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.selected {
+    border: 3px dotted #2c3a4e;
+}
+
+.note-heading {
+    font-weight: bold;
+    margin-top: 0;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btns > button {
+    background-color: #fefcfb;
+    color: #2c3a4e;
+}
+
+.fa-trash-alt {
+    color: red;
+}
+
+#snackbar-container {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+}
+
+.snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    /* background-color: #f59542; */
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 12px 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2s;
+    animation: fadein 0.5s, fadeout 0.5s 2s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #render-notes {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        column-gap: 10px;
+        row-gap: 15px;
+    }
+
+    .btns > button {
+        padding: 8px 28px;
+    }
+
+    .btns {
+        justify-content: flex-end;
+        gap: 15px;
+    }
+
+    .heading {
+        font-size: 32px;
+        letter-spacing: 0.05em;
+    }
+}
