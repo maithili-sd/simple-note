@@ -1,7 +1,7 @@
 
 # Simple Note
 
-Simple note taking application. Technial challenge for Playbook.
+Simple note taking application.
 
 
 ## Demo
